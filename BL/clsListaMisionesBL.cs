@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Entidades;
+using System.Collections.ObjectModel;
 
 namespace BL
 {
@@ -10,7 +11,7 @@ namespace BL
     /// </summary>
     public class clsListaMisionesBL
     {
-        public static List<clsMisiones> listaMisionesCompletaBL()
+        public static ObservableCollection<clsMisiones> listaMisionesCompletaBL()
         {
 
             return clsListaMisiones.listaMisionesCompleta();

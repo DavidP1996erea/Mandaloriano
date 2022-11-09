@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using System.Collections.ObjectModel;
 using System.ComponentModel.Design;
 
 namespace DAL
@@ -14,11 +15,11 @@ namespace DAL
         /// Postcondición: Retornará una lista completa de misiones
         /// </summary>
         /// <returns> List<clsMisiones></returns>
-        public static List<clsMisiones> listaMisionesCompleta()
+        public static ObservableCollection<clsMisiones> listaMisionesCompleta()
         {
 
 
-            List<clsMisiones> listaMisiones = new List<clsMisiones>();
+            ObservableCollection<clsMisiones> listaMisiones = new ObservableCollection<clsMisiones>();
 
             listaMisiones.Add(new clsMisiones
             {

@@ -2,9 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MandolarianoMaui.Views.PaginaPrincipal"
-             xmlns:model="clr-namespace:MandolarianoMaui.ViewModel"
-             Title="PaginaPrincipal">
+             Title="PaginaPrincipal"
+             
+            
+             xmlns:model="clr-namespace:MandolarianoMaui.ViewModel" >
 
+
+    <!-- Se hace el binding con el view model, para ello se usa el model creado arriba-->
     <ContentPage.BindingContext>
 
         <model:clsListaMisionesVM>
@@ -15,8 +19,27 @@
     
     <VerticalStackLayout>
         
-        <ListView ItemsSource="{Binding listaMisionesCompleta}" ></ListView>
+        <!-- Se crea un listView, donde se le dirá que coja la lista creada en el viewModel -->
+        <ListView ItemsSource="{Binding listaMisionesCompleta}" >
+
+            <ListView.ItemTemplate>
+
+                
+                <!-- Aquí le decimos que datos tiene que mostrar -->
+                <DataTemplate>
+
+                    <TextCell Text="{Binding NombreMision}"></TextCell>
+                               
+                </DataTemplate>
+                
+               
+            </ListView.ItemTemplate>
+
+
+
+        </ListView>
         
+        <!-- Botón que mostrará los detalles de la misión -->
         <Button Text="Mostrar detalles de la mision"></Button>
 
         <Label> Titulo mision</Label>

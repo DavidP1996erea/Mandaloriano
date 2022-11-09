@@ -1,6 +1,7 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace DAL
         /// <returns></returns>
         public static clsMisiones ObtenerMisionPorId(int id)
         {
-            List <clsMisiones> obtenerMisiones = clsListaMisiones.listaMisionesCompleta();
+            ObservableCollection<clsMisiones> obtenerMisiones = clsListaMisiones.listaMisionesCompleta();
             clsMisiones mision = new clsMisiones();
 
             foreach(clsMisiones misiones in obtenerMisiones)
