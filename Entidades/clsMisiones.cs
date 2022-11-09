@@ -9,5 +9,11 @@
         public int Recompensa { get; set; }
 
 
+        public clsMisiones()
+        {
+
+        }
+
+
     }
 }
