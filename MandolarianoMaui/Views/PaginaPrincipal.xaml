@@ -11,39 +11,52 @@
     <!-- Se hace el binding con el view model, para ello se usa el model creado arriba-->
     <ContentPage.BindingContext>
 
-        <model:clsListaMisionesVM>
+        <model:clsMainPageVM>
             
-        </model:clsListaMisionesVM>
+        </model:clsMainPageVM>
         
     </ContentPage.BindingContext>
     
     <VerticalStackLayout>
         
         <!-- Se crea un listView, donde se le dirá que coja la lista creada en el viewModel -->
-        <ListView ItemsSource="{Binding listaMisionesCompleta}" >
+        <ListView x:Name="ltvListadoMisiones" 
+                  ItemsSource="{Binding ListadoMisionesCompleto}"
+                  SelectedItem="{Binding MisionSeleccionada}">
 
             <ListView.ItemTemplate>
 
-                
-                <!-- Aquí le decimos que datos tiene que mostrar -->
                 <DataTemplate>
 
-                    <TextCell Text="{Binding NombreMision}"></TextCell>
-                               
+
+                    <TextCell Text="{Binding NombreMision}"/>
+
                 </DataTemplate>
                 
-               
+                
+                
             </ListView.ItemTemplate>
 
-
-
+          
         </ListView>
         
         <!-- Botón que mostrará los detalles de la misión -->
-        <Button Text="Mostrar detalles de la mision"></Button>
+        <Button x:Name="btnMostrarDetalles" Text="Mostrar detalles de la mision"
+                Command="{Binding MostrarDetallesCommand}"></Button>
 
         <Label> Titulo mision</Label>
-        <Label> Datos de la mision </Label>
-        <Label> Recompensa </Label>
+        <Label x:Name="lblNombreMision" Text="{Binding MisionSeleccionada.NombreMision}"
+               IsVisible="{Binding DatosMisionEsVisible}"></Label>
+
+        <Label>Descripción</Label>
+        <Label x:Name="lblDatosMision" Text="{Binding MisionSeleccionada.Descripcion}"
+                IsVisible="{Binding DatosMisionEsVisible}"/>
+
+
+        <Label>Recompensa</Label>
+        <Label x:Name="lblRecompensa"  x:Name="lblDatosMision" Text="{Binding MisionSeleccionada.Recompensa}"
+                IsVisible="{Binding DatosMisionEsVisible}"/> 
+        
+        
     </VerticalStackLayout>
 </ContentPage>
